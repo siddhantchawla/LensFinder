@@ -7,10 +7,10 @@ from keras.optimizers import SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nada
 
 from utils import load_data
 
-
+# loading the data
 X_train, y_train = load_data()
 
-
+# creating model
 model = Sequential()
 model.add(Convolution2D(32, (5, 5), input_shape=(96,96,1), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -40,9 +40,11 @@ model.add(Dense(128, activation='relu'))
 model.add(Dense(64, activation='relu'))
 model.add(Dense(30))
 
-
+# compiling model
 model.compile(optimizer = 'adam', loss = 'mean_squared_error', metrics = ['accuracy'])
 
+#Training model
 model.fit(X_train, y_train, epochs=10, batch_size=200, verbose=1, validation_split=0.2)
 
+#saving model
 model.save('my_model.h5')
