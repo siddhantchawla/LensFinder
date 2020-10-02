@@ -6,6 +6,7 @@ import numpy as np
 # Load the model
 my_model = load_model('my_model.h5')
 
+# Cascading faces through xml file
 face_cascade = cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.xml')
 
 # Defining the colour range for "Blue"
